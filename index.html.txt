@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veenil AI — Free AI Video Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<base target="_blank">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-mesh">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                </div>
+                <span class="logo-text">Veenil<span class="logo-accent"> AI</span></span>
+            </a>
+            <button class="nav-cta">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Powered by Advanced AI
+            </div>
+            <h1 class="hero-title">
+                Create Stunning<br>
+                <span class="gradient-text">AI Videos</span> for Free
+            </h1>
+            <p class="hero-subtitle">
+                Transform your ideas into cinematic visuals in seconds. No login, no watermarks, no limits.
+            </p>
+            <button class="btn-primary hero-cta" onclick="scrollToGenerator()">
+                <span>Start Creating</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+            </button>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="mini-video">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-meta">
+                        <div class="card-title">Cinematic Scene</div>
+                        <div class="card-time">0:10</div>
+                    </div>
+                </div>
+            </div>
+            <div class="floating-card card-2">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="mini-video" style="background: linear-gradient(135deg, #ff6b6b, #feca57);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-meta">
+                        <div class="card-title">Anime Style</div>
+                        <div class="card-time">0:05</div>
+                    </div>
+                </div>
+            </div>
+            <div class="floating-card card-3">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="mini-video" style="background: linear-gradient(135deg, #48dbfb, #0abde3);">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-meta">
+                        <div class="card-title">Ghibli World</div>
+                        <div class="card-time">0:30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Section -->
+    <section class="generator" id="generator">
+        <div class="section-header">
+            <h2 class="section-title">Generate Your Video</h2>
+            <p class="section-subtitle">Describe your vision, pick a style, and let AI do the magic.</p>
+        </div>
+
+        <div class="generator-card glass">
+            <div class="input-group">
+                <label for="prompt">Video Prompt</label>
+                <textarea 
+                    id="prompt" 
+                    class="prompt-input" 
+                    placeholder="Enter your video idea... e.g., 'A cyberpunk city at night with neon lights and flying cars'"
+                    rows="4"
+                ></textarea>
+                <div class="input-hint">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    Be descriptive for best results
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <div class="input-group">
+                    <label for="style">Video Style</label>
+                    <div class="select-wrapper">
+                        <select id="style" class="styled-select">
+                            <option value="cinematic">🎬 Cinematic</option>
+                            <option value="anime">🌸 Anime</option>
+                            <option value="realistic">📷 Realistic</option>
+                            <option value="ghibli">🏠 Ghibli Style</option>
+                            <option value="cartoon">🎨 Cartoon</option>
+                        </select>
+                        <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="duration">Duration</label>
+                    <div class="duration-selector" id="durationSelector">
+                        <button class="duration-btn active" data-value="5">5s</button>
+                        <button class="duration-btn" data-value="10">10s</button>
+                        <button class="duration-btn" data-value="30">30s</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="generate-btn" id="generateBtn" onclick="generateVideo()">
+                <div class="btn-bg"></div>
+                <span class="btn-content">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    <span class="btn-text">Generate Video</span>
+                </span>
+                <div class="btn-shine"></div>
+            </button>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+            <div class="loader-ring">
+                <div class="loader-core"></div>
+            </div>
+            <div class="loader-text">
+                <span class="loader-title">Generating your video</span>
+                <span class="loader-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </span>
+            </div>
+            <div class="loader-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-percent" id="progressPercent">0%</span>
+            </div>
+            <p class="loader-subtitle">Our AI is crafting frames, applying style, and rendering motion</p>
+        </div>
+
+        <!-- Output Section -->
+        <div class="output-section" id="outputSection">
+            <div class="output-card glass">
+                <div class="video-preview">
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <div class="placeholder-bg" id="placeholderBg"></div>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="togglePlay()">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="video-badge" id="videoBadge">5s • Cinematic</div>
+                    </div>
+                </div>
+                <div class="output-details">
+                    <div class="prompt-summary">
+                        <span class="summary-label">Generated from:</span>
+                        <p class="summary-text" id="summaryText"></p>
+                    </div>
+                    <div class="output-actions">
+                        <button class="action-btn primary" onclick="downloadVideo()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Video
+                        </button>
+                        <button class="action-btn secondary" onclick="resetGenerator()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <polyline points="23 20 23 14 17 14"></polyline>
+                                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+                            </svg>
+                            Create New
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose Veenil?</h2>
+            <p class="section-subtitle">The fastest way to turn imagination into motion.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card glass">
+                <div class="feature-icon" style="--icon-color: #a855f7;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M2 12h20"></path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">100% Free</h3>
+                <p class="feature-desc">No hidden fees, no subscriptions, no credit card required. Generate as many videos as you want.</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon" style="--icon-color: #06b6d4;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Fast Generation</h3>
+                <p class="feature-desc">State-of-the-art inference engines deliver your videos in seconds, not minutes.</p>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon" style="--icon-color: #f472b6;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h3 class="feature-title">No Login Required</h3>
+                <p class="feature-desc">Jump straight into creating. We don't ask for emails, accounts, or personal data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Veenil<span class="logo-accent"> AI</span></span>
+                </a>
+                <p class="footer-tagline">The future of video creation is here.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#generator">Generator</a>
+                <a href="#" onclick="alert('Coming soon')">API</a>
+                <a href="#" onclick="alert('Coming soon')">Privacy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Veenil AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✓</div>
+        <div class="toast-message" id="toastMessage">Action completed</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
